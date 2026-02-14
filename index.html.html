@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chacha Agencies | Kasganj</title>
+    <style>
+        :root { --red: #ed1c24; --blue: #0054a6; --gold: #ffcb05; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f0f2f5; color: #333; overflow-x: hidden; }
+        
+        /* Intro Animation */
+        #intro { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: linear-gradient(135deg, var(--red), #b31217); 
+            display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; z-index: 9999; color: white; text-align: center;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        #intro h1 { font-size: 4em; margin: 0; text-shadow: 2px 4px 10px rgba(0,0,0,0.3); }
+        .slide-up { transform: translateY(-100%); }
+
+        header { 
+            background: var(--red); color: white; padding: 30px 20px; 
+            text-align: center; border-bottom: 6px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .ceo-info { font-size: 0.95em; margin-top: 10px; line-height: 1.6; background: rgba(0,0,0,0.1); padding: 10px; border-radius: 10px; display: inline-block; }
+        .ceo-info a { color: var(--gold); text-decoration: none; font-weight: bold; }
+        
+        .instruction-text {
+            text-align: center; color: #2c3e50; font-weight: 500;
+            margin: 25px 15px 5px; font-size: 1.1em; line-height: 1.5;
+            padding: 10px; border-left: 4px solid var(--red); background: white;
+            border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .container { max-width: 550px; margin: auto; padding: 20px; }
+        .card { 
+            background: white; border-radius: 20px; margin-bottom: 25px; 
+            padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            border-top: 8px solid var(--red);
+        }
+        
+        input, select, textarea { 
+            width: 100%; padding: 14px; margin: 10px 0; 
+            border: 1px solid #ddd; border-radius: 12px; 
+            box-sizing: border-box; font-size: 16px; outline: none; background: #fafafa;
+        }
+        
+        .btn-wa { 
+            background: linear-gradient(to right, #25D366, #128C7E); color: white; 
+            border: none; padding: 16px; width: 100%; border-radius: 50px; 
+            font-weight: bold; cursor: pointer; font-size: 1.2em; 
+            display: none; text-decoration: none; margin-top: 15px; text-align: center;
+        }
+        .btn-solar { background: linear-gradient(to right, var(--blue), #003366); }
+        .btn-service { background: linear-gradient(to right, #444, #111); display: none; }
+        
+        footer { text-align: center; padding: 30px; font-size: 13px; color: #777; background: #fff; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body onload="startIntro()">
+
+    <div id="intro">
+        <h1>नमस्ते</h1>
+        <p>चाचा परिवार आपका स्वागत करता है</p>
+    </div>
+
+    <header>
+        <h1 style="margin:0; font-size: 2.2em;">CHACHA AGENCIES</h1>
+        <div class="ceo-info">
+            <strong>Owners:</strong> M.L Chacha & Maruti Nandan Varshney<br>
+            <a href="https://maps.google.com/maps/contrib/110840329918729399330" target="_blank" style="color:white; text-decoration:none;">
+                📍 Near Bus Stand,Thandi Sadak, Kasganj 207123 (U.P.) <br>
+                <small>(Maps)</small>
+            </a><br>
+            📞 <a href="tel:+919219607601">9219607601</a> | <a href="tel:+919219607608">9219607608</a><br>
+            📧 <a href="mailto:chacha@chachagroup.in" style="color:var(--gold);">chacha@chachagroup.in</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="instruction-text">
+            <b>बेहतर सेवा के लिए</b> कृपया नीचे दिए गए बॉक्स में अपनी जानकारी भरें, हमारी टीम जल्द ही आपसे संपर्क करेगी।
+        </div>
+
+        <div class="card">
+            <h2 style="color:var(--red)">🛒 Battery Purchase</h2>
+            <input type="text" id="pName" placeholder="Name">
+            <input type="tel" id="pMob" placeholder="Mobile Number">
+            <select id="pType">
+                <option value="">Battery Type Chunein</option>
+                <option value="Inverter Battery">Inverter Battery</option>
+                <option value="Car Battery">Car Battery</option>
+                <option value="Tractor Battery">Tractor Battery</option>
+            </select>
+            <textarea id="pAddr" placeholder="Address"></textarea>
+            <button id="btn-p" class="btn-wa" onclick="sendInquiry('Sale')">Submit</button>
+        </div>
+
+        <div class="card" style="border-top-color: var(--blue);">
+            <h2 style="color:var(--blue)">☀️ PM Surya Ghar Yojna</h2>
+            <input type="text" id="solName" placeholder="Name">
+            <input type="tel" id="solMob" placeholder="Mobile Number">
+            <select id="solLoad">
+                <option value="">Capacity Chunein</option>
+                <option value="1 KW">1 KW</option>
+                <option value="2 KW">2 KW</option>
+                <option value="3 KW">3 KW</option> 
+                <option value="4 KW">4 KW</option>
+                <option value="5 KW">5 KW</option>
+            </select>
+            <textarea id="solAddr" placeholder="Address"></textarea>
+            <button id="btn-sol" class="btn-wa btn-solar" onclick="sendInquiry('Solar')">Submit</button>
+        </div>
+
+        <div class="card" style="border-top-color: #333;">
+            <h2 style="color:#333">🛠️ Service Center</h2>
+            <select id="serType">
+                <option value="">Complaint Type Chunein</option>
+                <option value="Inverter Battery Complaint">Inverter Battery Complaint</option>
+                <option value="Inverter Complaint">Inverter Complaint</option>
+                <option value="Local Area Water Complaint">Local Area Water Complaint</option>
+            </select>
+            <button id="btn-ser" class="btn-wa btn-service" onclick="goToExide()">Submit</button>
+        </div>
+        
+        <center><a href="aboutus.html" style="color:var(--red); text-decoration:none; font-weight:bold;">About Us</a></center>
+    </div>
+
+    <footer>
+        <strong>Chacha Agencies Kasganj</strong><br>
+        📧 chacha@chachagroup.in | Authorised Exide Dealer
+    </footer>
+
+    <script>
+        function startIntro() { setTimeout(() => { document.getElementById('intro').classList.add('slide-up'); }, 1200); }
+
+        document.addEventListener('input', function() {
+            checkFields('Sale'); checkFields('Solar'); checkFields('Service');
+        });
+
+        function checkFields(type) {
+            let btn;
+            if(type === 'Sale') {
+                const n = document.getElementById('pName').value.trim();
+                const m = document.getElementById('pMob').value.trim();
+                const a = document.getElementById('pAddr').value.trim();
+                const opt = document.getElementById('pType').value;
+                btn = document.getElementById('btn-p');
+                btn.style.display = (n && m && a && opt) ? 'block' : 'none';
+            } else if(type === 'Solar') {
+                const n = document.getElementById('solName').value.trim();
+                const m = document.getElementById('solMob').value.trim();
+                const a = document.getElementById('solAddr').value.trim();
+                const opt = document.getElementById('solLoad').value;
+                btn = document.getElementById('btn-sol');
+                btn.style.display = (n && m && a && opt) ? 'block' : 'none';
+            } else {
+                const opt = document.getElementById('serType').value;
+                btn = document.getElementById('btn-ser');
+                btn.style.display = (opt) ? 'block' : 'none';
+            }
+        }
+
+        function sendInquiry(type) {
+            const ph = "919219607601";
+            let msg = "";
+            if(type === 'Sale') {
+                msg = `*--- BATTERY SALE ---*%0A*Name:* ${document.getElementById('pName').value}%0A*Mob:* ${document.getElementById('pMob').value}%0A*Type:* ${document.getElementById('pType').value}%0A*Addr:* ${document.getElementById('pAddr').value}`;
+            } else {
+                msg = `*--- SOLAR INQUIRY ---*%0A*Name:* ${document.getElementById('solName').value}%0A*Mob:* ${document.getElementById('solMob').value}%0A*Type:* ${document.getElementById('solLoad').value}%0A*Addr:* ${document.getElementById('solAddr').value}`;
+            }
+            window.location.href = "https://wa.me/" + ph + "?text=" + msg;
+        }
+
+        function goToExide() {
+            window.location.href = "https://www.exidecare.com/exide-batmobile/inverter-battery-hups-service-booking.aspx";
+        }
+    </script>
+</body>
+</html>
